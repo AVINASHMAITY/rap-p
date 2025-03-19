@@ -1,0 +1,56 @@
+managed implementation in class zbp_cakm_i_ptnr unique;
+strict;
+
+with draft;
+define behavior for ZCAKM_I_PTNR alias Partner
+persistent table zdakm_ptnr
+draft table zdakm_dptnr
+lock master total etag last_change_at
+authorization master ( instance )
+etag master last_change_at
+late numbering
+{
+  create;
+  update;
+  delete(features : global);
+  field ( readonly) PartnerNumber;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare
+  {
+  validation validateKeyIsFilled;
+  validation validateCoreData;
+  }
+
+  validation validateKeyIsFilled on save { create; }
+  validation validateCoreData on save { create;field Country, PaymentCurrency ;}
+
+  determination fillCurrency on modify {create; update;}
+
+  action fillEmptyStreets;
+  static action clearAllEmptyStreet;
+  action ClearSingle;
+  action fillsEmptyStreets result [1] $self;
+  factory action copyAll [1];
+  static action withPopup parameter ZCAKM_I_POPUP;
+
+  action ( features : instance ) fillEmptyStr result [1] $self;
+
+
+  mapping for ZDAKM_PTNR{
+   PartnerNumber=partner;
+   PartnerName=name;
+   City=city;
+   Country=country;
+   PaymentCurrency=payment_currency;
+   Street=street;
+   last_change_at=lastchangedat;
+   lastChangedBy=last_changed_by;
+   createdAt=created_at;
+   createdBy=created_by;
+  }
+
+}

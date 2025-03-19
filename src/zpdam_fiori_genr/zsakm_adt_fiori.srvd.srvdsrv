@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Defination'
+define service ZSAKM_ADT_FIORI {
+  expose ZCAKM_C_GEN2H as Head;
+  expose ZCAKM_C_GEN2P as Item;
+}

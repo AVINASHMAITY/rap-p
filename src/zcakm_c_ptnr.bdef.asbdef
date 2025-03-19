@@ -1,0 +1,24 @@
+projection;
+strict ( 1 );
+
+use draft;
+define behavior for ZCAKM_C_PTNR alias Partner
+{
+  use create;
+  use update;
+  use delete;
+
+  use action fillEmptyStreets;
+  use action clearAllEmptyStreet;
+  use action ClearSingle;
+  use action fillsEmptyStreets;
+  use action copyAll;
+  use action withPopup;
+  use action fillEmptyStr;
+
+  use action Activate;
+  use action Edit;
+  use action Prepare;
+  use action Resume;
+  use action Discard;
+}

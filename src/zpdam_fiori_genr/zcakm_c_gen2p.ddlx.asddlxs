@@ -1,0 +1,62 @@
+@Metadata.layer:#CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'ITEM', 
+    typeNamePlural: 'ITEMs', 
+    title: {
+      type: #STANDARD, 
+      label: 'ITEM', 
+      value: 'Price'
+    }
+  }, 
+  presentationVariant: [ {
+    sortOrder: [ {
+      by: 'Price', 
+      direction: #DESC
+    } ], 
+    visualizations: [ {
+      type: #AS_LINEITEM
+    } ]
+  } ]
+}
+annotate view ZCAKM_C_GEN2P
+    with 
+{
+
+ @UI.facet: [ {
+    id: 'idGEN2_ITEM', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'ITEM', 
+    position: 10 
+  } ]
+  @UI.hidden: true
+  UuidPos;
+  
+  @UI.hidden: true
+  UuidKey;
+  
+  @UI.lineItem: [ {
+    position: 30 , 
+    importance: #HIGH, 
+    label: 'Price'
+  } ]
+  @UI.identification: [ {
+    position: 30 , 
+    label: 'Price'
+  } ]
+  Price;
+  
+  @UI.hidden: true
+  LocalLastChanged;
+  
+  @UI.lineItem: [ {
+    position: 60 , 
+    importance: #HIGH
+  } ]
+  @UI.identification: [ {
+    position: 60 
+  } ]
+  LastChanged;
+    
+}

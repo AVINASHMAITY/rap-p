@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Defination Invoice'
+define service ZSAKM_INVOICE {
+  expose ZCAKM_C_INVOICE as Invoice;
+  expose ZCAKM_C_RITEM   as Items;
+}

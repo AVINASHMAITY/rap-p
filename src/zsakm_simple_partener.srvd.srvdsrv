@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Defination Partner'
+define service ZSAKM_SIMPLE_PARTENER {
+  expose ZCAKM_C_PTNR       as Partner;
+  expose ZCAKM_I_RAPCITY_VH as City;
+}

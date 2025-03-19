@@ -1,0 +1,135 @@
+@Metadata.layer: #CORE
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'Identification'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'Identification'
+annotate view ZC_DAKM_LANG with
+{
+  @EndUserText.label: 'Identification'
+  @UI.facet: [ {
+    label: 'Source', 
+    id: 'SourceInfo', 
+    purpose: #STANDARD, 
+    position: 10 , 
+    type: #IDENTIFICATION_REFERENCE,
+    targetQualifier: 'Source'
+  } ,
+  { 
+  id : 'TargetInfo',
+  label: 'Target',
+  purpose : #STANDARD,
+  type: #IDENTIFICATION_REFERENCE,
+  position: 20,
+  targetQualifier: 'Target'
+  }]
+//  @UI.identification: [ {
+//    position: 10 , 
+//    label: 'Identification'
+//  } ]
+//  @UI.lineItem: [ {
+//    position: 10 , 
+//    label: 'Identification'
+//  } ]
+//  @UI.selectionField: [ {
+//    position: 10 
+//  } ]
+@UI.hidden: true
+  Identification;
+  
+  @UI.identification: [ {
+    position: 20 
+  } ]
+  @UI.lineItem: [ {
+    position: 20 
+  } ]
+  @UI.selectionField: [ {
+    position: 20 
+  } ]
+  @Consumption.valueHelpDefinition: [{ entity:{ name: 'I_Language', element: 'LanguageISOCode' } }]
+  SourceLanguage;
+  
+  @EndUserText.label: 'SourceText'
+  @UI.identification: [ {
+    position: 30 , 
+    label: 'SourceText',
+    qualifier: 'Source'
+  } ]
+  @UI.lineItem: [ {
+    position: 30 , 
+    label: 'SourceText'
+  } ]
+  @UI.selectionField: [ {
+    position: 30 
+  } ]
+  SourceText;
+  
+  @UI.identification: [ {
+    position: 40 
+  } ]
+  @UI.lineItem: [ {
+    position: 40 
+  } ]
+  @UI.selectionField: [ {
+    position: 40 
+  } ]
+  TargetLanguage;
+  
+  @EndUserText.label: 'TargetText'
+  @UI.identification: [ {
+    position: 50 , 
+    label: 'TargetText',
+    qualifier: 'Target'
+  } ]
+  @UI.lineItem: [ {
+    position: 50 , 
+    label: 'TargetText'
+  } ]
+  @UI.selectionField: [ {
+    position: 50 
+  } ]
+  TargetText;
+  
+  @UI.identification: [ {
+    position: 60 
+  } ]
+  @UI.lineItem: [ {
+    position: 60 
+  } ]
+  @UI.selectionField: [ {
+    position: 60 
+  } ]
+  LocalCreatedBy;
+  
+  @UI.identification: [ {
+    position: 70 
+  } ]
+  @UI.lineItem: [ {
+    position: 70 
+  } ]
+  @UI.selectionField: [ {
+    position: 70 
+  } ]
+  LocalLastChangedBy;
+  
+  @UI.identification: [ {
+    position: 80 
+  } ]
+  @UI.lineItem: [ {
+    position: 80 
+  } ]
+  @UI.selectionField: [ {
+    position: 80 
+  } ]
+  LocalLastChanged;
+  
+  @UI.identification: [ {
+    position: 90 
+  } ]
+  @UI.lineItem: [ {
+    position: 90 
+  } ]
+  @UI.selectionField: [ {
+    position: 90 
+  } ]
+  LastChanged;
+}

@@ -1,0 +1,20 @@
+unmanaged implementation in class zbp_cakm_i_unmg unique;
+strict ( 1 );
+
+define behavior for ZCAKM_I_UNMG alias Unmanage
+//late numbering
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field ( readonly ) GenKey;
+
+  mapping for ZDAKM_UNMG{
+  GenKey = gen_key;
+  Text = text;
+  Cdate = cdate;
+  }
+}

@@ -1,0 +1,63 @@
+@Metadata.layer: #CUSTOMER
+@UI:{ 
+headerInfo:{ 
+typeName: 'head',
+typeNamePlural: 'Head',
+title:{ label: 'Head',
+value: 'Description',
+type: #STANDARD }
+
+},
+presentationVariant: [ {
+    sortOrder: [ {
+      by: 'Description', 
+      direction: #DESC
+    } ], 
+    visualizations: [ {
+      type: #AS_LINEITEM
+    } ]
+  } ]
+}
+annotate view ZCAKM_C_GEN2H
+    with 
+{
+@UI.facet: [{ 
+id:'gen',
+type: #COLLECTION,
+label: 'Header',
+position: 10
+ },
+ { 
+ id : 'ididefication',
+ type: #IDENTIFICATION_REFERENCE,
+ parentId: 'gen',
+ label: 'General Information',
+ position: 20
+ },
+ { 
+ id : 'iditem',
+ label: 'Items',
+ type: #LINEITEM_REFERENCE,
+ targetElement: '_Items',
+ position: 30
+ }]
+@UI.hidden: true
+    UuidKey;
+    @UI:{ 
+    selectionField: [{ position: 10 }],
+    lineItem: [{ position: 10 }],
+    identification: [{ position: 10, label: 'Description' }]
+    }
+    Description;
+     @UI:{ 
+    selectionField: [{ position: 20 }],
+    lineItem: [{ position: 20 }],
+    identification: [{ position: 20 }]
+    }
+    IsActive;
+    @UI.hidden: true
+    LastChanged;
+    @UI.hidden: true
+    LocalLastChanged;
+    
+}

@@ -1,0 +1,21 @@
+managed implementation in class zbp_cakm_i_rcompany unique;
+strict ( 2 );
+
+define behavior for ZCAKM_I_RCOMPANY alias Company
+persistent table zdakm_cname
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field ( readonly ) Name;
+
+  mapping for ZDAKM_CNAME{
+  Name=name;
+  Description=description;
+  Branch=branch;
+  }
+
+}

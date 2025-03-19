@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Defination'
+define service ZSDAKM_COMPANY {
+  expose ZCAKM_C_RCOMPANY as Company;
+}

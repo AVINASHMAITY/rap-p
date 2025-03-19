@@ -1,0 +1,5 @@
+@AbapCatalog.extensibility.extensible: true
+@ObjectModel.leadingEntity.name: 'ZC_ZCAKM_DMOTP'
+define service ZUI_ZCAKM_DMO {
+  expose ZC_ZCAKM_DMOTP as ZCAKM_DMO;
+}

@@ -1,0 +1,48 @@
+managed implementation in class zbp_cakm_r_invoice unique;
+strict ( 1 );
+
+define behavior for ZCAKM_R_INVOICE alias Invoice
+persistent table zdakm_inhe
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field ( readonly:update ) Document;
+  association _Items { create; }
+
+  mapping for ZDAKM_INHE
+  {
+  Document=document;
+  Partner=partner;
+  DocDate=doc_date;
+  DocTime=doc_time;
+  }
+
+}
+
+define behavior for ZCAKM_I_ITEMSS alias Items
+persistent table zdakm_ivit
+lock dependent by _Invoice
+authorization dependent by _Invoice
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Document;
+  field ( readonly:update ) PosNumber;
+  association _Invoice;
+
+  mapping for ZDAKM_IVIT
+  {
+  Document=document;
+  Material=material;
+  Currency=currency;
+  PosNumber=pos_number;
+  Price=price;
+  Quantity=quantity;
+  StockUnit=stock_unit;
+  }
+}

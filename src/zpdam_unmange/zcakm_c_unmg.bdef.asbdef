@@ -1,0 +1,9 @@
+projection;
+strict ( 1 );
+
+define behavior for ZCAKM_C_UNMG alias Unmanage
+{
+  use create;
+  use update;
+  use delete;
+}

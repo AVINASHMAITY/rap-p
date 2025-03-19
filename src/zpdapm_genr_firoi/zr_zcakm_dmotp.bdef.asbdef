@@ -1,0 +1,51 @@
+managed;
+strict ( 2 );
+with draft;
+extensible
+{
+  with additional save;
+  with determinations on modify;
+  with determinations on save;
+  with validations on save;
+}
+define behavior for ZR_ZCAKM_DMOTP alias ZCAKM_DMO
+implementation in class ZBP_R_ZCAKM_DMOTP unique
+persistent table ZDAKM_GENH
+extensible
+draft table ZZCAKM_DMO00D
+query ZR_ZCAKM_DMO_D
+etag master LocalLastChanged
+lock master total etag LastChanged
+authorization master( global )
+
+{
+  field ( readonly )
+   UuidKey,
+   LocalLastChanged,
+   LastChanged;
+
+  field ( numbering : managed )
+   UuidKey;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare extensible;
+
+  mapping for ZDAKM_GENH corresponding extensible
+  {
+    UuidKey = UUID_KEY;
+    Description = DESCRIPTION;
+    IsActive = IS_ACTIVE;
+    LocalLastChanged = LOCAL_LAST_CHANGED;
+    LastChanged = LAST_CHANGED;
+  }
+
+  determination CalculateUuidKey on save { create; }
+}

@@ -1,0 +1,19 @@
+projection;
+strict ( 1 );
+
+define behavior for ZCAKM_C_INVOICE alias Items
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _Items { create; }
+}
+
+define behavior for ZCAKM_C_RITEM alias Invoice
+{
+  use update;
+  use delete;
+
+  use association _Invoice;
+}

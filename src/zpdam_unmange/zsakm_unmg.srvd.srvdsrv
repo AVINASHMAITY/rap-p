@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Defination Unmanage'
+define service ZSAKM_UNMG {
+  expose ZCAKM_C_UNMG as Unmanage;
+}

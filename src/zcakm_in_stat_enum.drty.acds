@@ -1,0 +1,15 @@
+@EndUserText.label: 'Invoice status Enum'
+@EndUserText.quickInfo: 'Inv. Status'
+@EndUserText.heading: 'Invoice Status'
+define type ZCAKM_IN_STAT_ENUM: abap.char( 1 ) ENUM
+
+{ 
+@EndUserText.label: 'Initial'
+Empty = initial ;
+@EndUserText.label: 'Created'
+Created = 'C';
+@EndUserText.label: 'Payed'
+Payed = 'P';
+@EndUserText.label: 'Closed'
+Closed ='O';
+}

@@ -1,0 +1,28 @@
+interface;
+
+use draft;
+
+define behavior for ZCAKM_I_GEN2H alias Head
+use etag
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Activate;
+  use action Discard;
+  use action Edit;
+  use action Resume;
+  use action Prepare;
+
+  use association _Items { create; with draft; }
+}
+
+define behavior for ZCAKM_I_GEN2P alias Item
+use etag {
+
+  use update;
+  use delete;
+
+  use association _Head { with draft; }
+}

@@ -1,0 +1,45 @@
+managed implementation in class ZBP_R_DAKM_LANG unique;
+strict ( 2 );
+with draft;
+define behavior for ZR_DAKM_LANG alias ZrDakmLang
+persistent table ZDAKM_LANG
+draft table ZDAKM_LANG_D
+etag master LocalLastChanged
+lock master total etag LastChanged
+authorization master( global )
+
+{
+  field ( readonly )
+   Identification,
+   LocalCreatedBy,
+   LocalLastChangedBy,
+   LocalLastChanged,
+   LastChanged;
+
+  field ( numbering : managed )
+   Identification;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZDAKM_LANG
+  {
+    Identification = identification;
+    SourceLanguage = source_language;
+    SourceText = source_text;
+    TargetLanguage = target_language;
+    TargetText = target_text;
+    LocalCreatedBy = local_created_by;
+    LocalLastChangedBy = local_last_changed_by;
+    LocalLastChanged = local_last_changed;
+    LastChanged = last_changed;
+  }
+}

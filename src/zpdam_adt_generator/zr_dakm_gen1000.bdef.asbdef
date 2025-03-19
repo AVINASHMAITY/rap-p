@@ -1,0 +1,48 @@
+managed implementation in class ZBP_R_DAKM_GEN1000 unique;
+strict ( 2 );
+with draft;
+define behavior for ZR_DAKM_GEN1000 alias ZrDakmGen1000
+persistent table ZDAKM_GEN1
+draft table ZDAKM_GEN1000_D
+etag master LocalLastChanged
+lock master total etag LastChanged
+authorization master( global )
+
+{
+  field ( mandatory : create )
+   UuidKey;
+
+  field ( readonly )
+   LocalCreatedBy,
+   LocalCreatedAt,
+   LocalLastChangedBy,
+   LocalLastChanged,
+   LastChanged;
+
+  field ( readonly : update )
+   UuidKey;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZDAKM_GEN1
+  {
+    UuidKey = uuid_key;
+    Description = description;
+    Price = price;
+    Currency = currency;
+    LocalCreatedBy = local_created_by;
+    LocalCreatedAt = local_created_at;
+    LocalLastChangedBy = local_last_changed_by;
+    LocalLastChanged = local_last_changed;
+    LastChanged = last_changed;
+  }
+}

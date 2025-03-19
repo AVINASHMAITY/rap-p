@@ -1,0 +1,61 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo:{ 
+typeName: 'Invoice',
+typeNamePlural: 'Invoice',
+title:{ value: 'Partner' },
+description:{ value: 'Partner' },
+typeImageUrl: 'sap-icon://my-sales-order'
+}
+annotate entity ZCAKM_C_INVOICE
+    with 
+{
+
+@UI.facet: [{ 
+  id : 'InvoiceFacet',
+  type: #FIELDGROUP_REFERENCE,
+  label: 'Information',
+  targetQualifier: 'Info',
+  position: 10
+ },
+ { 
+ id : 'InvoiceFacet2',
+ type: #FIELDGROUP_REFERENCE,
+ label: 'Date and Time',
+ targetQualifier: 'Date_Info',
+ position: 20
+ },
+ { 
+ id: 'Child_Item',
+ type: #LINEITEM_REFERENCE,
+ label: 'Items',
+ targetElement: '_Items',
+ position: 30
+ }
+ ]
+
+@UI:{ 
+selectionField: [{ position: 10 }],
+lineItem: [{ position: 10 }],
+fieldGroup: [{ qualifier: 'Info', position: 10 }]
+}
+    Document;
+@UI:{ 
+selectionField: [{ position: 20 }],
+lineItem: [{ position: 20 }],
+fieldGroup: [{ qualifier: 'Info', position: 20 }]
+}    
+    Partner;
+    @UI:{ 
+selectionField: [{ position: 30 }],
+lineItem: [{ position: 30 }],
+fieldGroup: [{ qualifier: 'Date_Info', position: 10 }]
+}   
+    DocDate;
+  @UI:{ 
+selectionField: [{ position: 30 }],
+lineItem: [{ position: 30 }],
+fieldGroup: [{ qualifier: 'Date_Info', position: 20 }]
+}   
+    DocTime;
+    
+}

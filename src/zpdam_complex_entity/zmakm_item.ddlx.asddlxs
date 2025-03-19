@@ -1,0 +1,73 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo:{
+typeName: 'items',
+typeNamePlural: 'Item',
+title:{ value: 'Document' }
+}
+annotate entity ZCAKM_C_RITEM with
+{
+
+@UI.facet: [{  
+id: 'Itemfacet',
+type: #FIELDGROUP_REFERENCE,
+label: 'Item_Info',
+position: 10,
+targetQualifier: 'Item_Info'
+},
+{  
+id: 'Itemfacet2',
+type: #FIELDGROUP_REFERENCE,
+label: 'Item_Unit',
+position: 20,
+targetQualifier: 'Item_Unit'
+}]
+
+  @UI:{
+    selectionField: [{ position: 10 }],
+    lineItem: [{ position: 10 }],
+    fieldGroup: [{ position: 10, qualifier: 'Item_Info' }]
+  }
+  Document;
+  @UI:{
+  selectionField: [{ position: 20 }],
+  lineItem: [{ position: 20 }],
+    fieldGroup: [{ position: 10, qualifier: 'Item_Info' }]
+  }
+
+  PosNumber;
+  @UI:{
+  selectionField: [{ position: 30 }],
+  lineItem: [{ position: 30 }],
+    fieldGroup: [{ position: 10, qualifier: 'Item_Info' }]
+  }
+
+  Material;
+  @UI:{
+  selectionField: [{ position: 40 }],
+  lineItem: [{ position: 40 }],
+    fieldGroup: [{ position: 10, qualifier: 'Item_Unit' }]
+  }
+
+  Currency;
+  @UI:{
+  selectionField: [{ position: 50 }],
+  lineItem: [{ position: 50 }],
+    fieldGroup: [{ position: 10, qualifier: 'Item_Unit' }]
+  }
+
+  Price;
+  @UI:{
+  selectionField: [{ position: 60 }],
+  lineItem: [{ position: 60 }],
+    fieldGroup: [{ position: 10, qualifier: 'Item_Unit' }]
+  }
+
+  Quantity;
+  @UI:{
+  selectionField: [{ position: 70 }],
+  lineItem: [{ position: 70 }],
+    fieldGroup: [{ position: 10, qualifier: 'Item_Unit' }]
+  }
+
+  StockUnit;
+}

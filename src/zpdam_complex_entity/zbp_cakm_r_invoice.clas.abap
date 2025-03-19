@@ -1,0 +1,5 @@
+CLASS zbp_cakm_r_invoice DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zcakm_r_invoice.
+ENDCLASS.
+
+CLASS zbp_cakm_r_invoice IMPLEMENTATION.
+ENDCLASS.

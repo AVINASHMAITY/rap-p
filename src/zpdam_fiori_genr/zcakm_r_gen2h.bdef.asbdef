@@ -1,0 +1,60 @@
+managed implementation in class zbp_cakm_r_gen2h unique;
+strict ( 2 );
+
+with draft;
+define behavior for ZCAKM_R_GEN2H alias Head
+persistent table zcakm_gen2h
+draft table zcakm_dgen2h
+etag master LastChanged
+lock master total etag LastChanged
+authorization master ( global )
+
+{
+  create;
+  update;
+  delete;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  field ( readonly )UuidKey,LastChanged,LocalLastChanged;
+  field ( numbering : managed ) UuidKey;
+  association _Items { create;with draft; }
+
+  mapping for ZCAKM_GEN2H
+  {
+  UuidKey=uuid_key;
+  Description=description;
+  IsActive=is_active;
+  LastChanged=last_changed;
+  LocalLastChanged=local_last_changed;
+  }
+}
+
+define behavior for ZCAKM_R_GEN2P alias Item
+persistent table zcakm_gen2p
+draft table zcakm_dgen2p
+lock dependent by _Head
+authorization dependent by _Head
+etag master LocalLastChanged
+{
+  update;
+  delete;
+  field ( readonly ) UuidKey,UuidPos,LastChanged,LocalLastChanged;
+  field ( numbering : managed ) UuidPos;
+
+  association _Head {with draft;}
+
+  mapping for ZCAKM_GEN2P
+  {
+  UuidKey=uuid_key;
+  UuidPos=uuid_pos;
+  Currency=currency;
+  Price=price;
+  LocalLastChanged=local_last_changed;
+  LastChanged=last_changed;
+  }
+
+}

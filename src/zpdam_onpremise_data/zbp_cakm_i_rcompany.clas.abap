@@ -1,0 +1,5 @@
+CLASS zbp_cakm_i_rcompany DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zcakm_i_rcompany.
+ENDCLASS.
+
+CLASS zbp_cakm_i_rcompany IMPLEMENTATION.
+ENDCLASS.
